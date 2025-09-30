@@ -1,0 +1,18 @@
+---
+// Este componente funciona como una "biblioteca" de íconos SVG.
+// Le pasas el nombre del ícono que quieres mostrar y lo renderiza.
+// Esto evita tener código SVG repetido por todo el proyecto.
+
+const { name, class: className, ...rest } = Astro.props;
+
+// Importa todos los íconos de la carpeta `assets/icons` como texto plano.
+const icons = import.meta.glob('/src/assets/icons/*.svg', { as: 'raw' });
+
+// Construye la ruta al ícono solicitado.
+const iconPath = `/src/assets/icons/${name}.svg`;
+
+// Obtiene el contenido del SVG o null si no existe.
+const svg = icons[iconPath] || null;
+---
+
+{svg && <div class:list={[className]} set:html={svg} {...rest} />}

@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+.typed-text {
+  position: relative;
+}
+
+.typed-text::after {
+  content: '|';
+  display: inline-block;
+  animation: blink 0.7s infinite;
+  margin-left: 0.1em;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-1 {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-2 {
+  animation: fadeIn 0.8s ease-out forwards 0.2s;
+}
+
+.fade-in-3 {
+  animation: fadeIn 0.8s ease-out forwards 0.4s;
+}
+
+.fade-in-4 {
+  animation: fadeIn 0.8s ease-out forwards 0.6s;
+}
+
+.fade-in-5 {
+  animation: fadeIn 0.8s ease-out forwards 0.8s;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Terminal Colors */
+.terminal-prompt {
+  color: #8be9fd; /* Cyan */
+}
+.terminal-path {
+  color: #50fa7b; /* Green */
+}
+.terminal-command {
+  color: #ff79c6; /* Pink */
+}
+.terminal-output {
+  color: #f8f8f2; /* Light Gray */
+}
+.terminal-info {
+  color: #bd93f9; /* Purple */
+}
+.terminal-value {
+  color: #ffb86c; /* Orange */
+}
+
+/* Progress Bar Animation */
+@keyframes fillProgressBar {
+  0% { width: 0%; }
+  100% { /* width will be set by inline style */ }
+}
+
+.progress-bar-fill {
+  animation: fillProgressBar 1.5s ease-out forwards;
+}
+
+/* Nav Link Underline */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #8be9fd; /* Un color vibrante, por ejemplo */
+  transition: width 0.3s ease-out;
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  width: 100%;
+}
