@@ -4,137 +4,269 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout activePage={Astro.url.pathname}>
   <main class="max-w-7xl mx-auto my-12 pt-12 px-4">
-    <div class="text-center mb-12 fade-in-1">
-      <h1 class="text-4xl font-bold text-white">Habilidades Técnicas</h1>
-      <p class="text-lg text-gray-300">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-white mb-8">Habilidades</h1>
+      <p class="text-lg text-gray-300 mb-20">
         Mi nivel de conocimiento en diversas tecnologías.
       </p>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2 pb-15">
       <!-- Desarrollo Web -->
-      <div class="glass-card shadow-lg rounded-xl p-6 fade-in-2">
-        <h5 class="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> Desarrollo Web
+      <div class="glass-card shadow-lg rounded-xl p-6">
+        <h5
+          class="text-xl font-semibold mb-4 flex items-center gap-2 text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-code"
+            ><polyline points="16 18 22 12 16 6"></polyline><polyline
+              points="8 6 2 12 8 18"></polyline></svg
+          > Desarrollo Web
         </h5>
 
         <!-- HTML -->
         <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>HTML</span>
+            <span class="flex items-center gap-2 mb-1"> HTML </span>
             <span>Intermedio</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-blue-500 h-2 rounded-full progress-bar-fill" style="width:70%"></div>
+            <div
+              class="bg-blue-500 h-2 rounded-full progress-bar-fill"
+              style="width:60%"
+            >
+            </div>
           </div>
         </div>
 
         <!-- CSS -->
         <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>CSS</span>
+            <span class="flex items-center gap-2 mb-1"> CSS </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-cyan-400 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-cyan-400 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
 
         <!-- Bootstrap -->
-        <div>
+        <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>Bootstrap</span>
+            <span class="flex items-center gap-2 mb-1"> Bootstrap </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-purple-500 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-purple-700 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Astro -->
+        <div class="mb-4">
+          <div class="flex justify-between text-sm font-medium text-gray-300">
+            <span class="flex items-center gap-2 mb-1"> Astro </span>
+            <span>Básico</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div
+              class="bg-indigo-400 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Lenguajes de Programación -->
-      <div class="glass-card shadow-lg rounded-xl p-6 fade-in-3">
-        <h5 class="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-terminal"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg> Lenguajes de Programación
+      <div class="glass-card shadow-lg rounded-xl p-6">
+        <h5
+          class="text-xl font-semibold mb-4 flex items-center gap-2 text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-terminal"
+            ><polyline points="4 17 10 11 4 5"></polyline><line
+              x1="12"
+              y1="19"
+              x2="20"
+              y2="19"></line></svg
+          > Lenguajes de Programación
         </h5>
 
         <!-- Python -->
         <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>Python</span>
+            <span class="flex items-center gap-2 mb-1"> Python </span>
             <span>Intermedio</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-green-500 h-2 rounded-full progress-bar-fill" style="width:70%"></div>
+            <div
+              class="bg-green-500 h-2 rounded-full progress-bar-fill"
+              style="width:60%"
+            >
+            </div>
           </div>
         </div>
 
         <!-- Java -->
         <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>Java</span>
+            <span class="flex items-center gap-2 mb-1"> Java </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-red-500 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-red-500 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
 
         <!-- C++ -->
-        <div>
+        <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>C++</span>
+            <span class="flex items-center gap-2 mb-1"> C++ </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-indigo-500 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-indigo-500 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- C++ -->
+        <div class="mb-4">
+          <div class="flex justify-between text-sm font-medium text-gray-300">
+            <span class="flex items-center gap-2 mb-1"> C </span>
+            <span>Básico</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div
+              class="bg-sky-600 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Bases de Datos -->
-      <div class="glass-card shadow-lg rounded-xl p-6 fade-in-4">
-        <h5 class="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> Bases de Datos
+      <div class="glass-card shadow-lg rounded-xl p-6">
+        <h5
+          class="text-xl font-semibold mb-4 flex items-center gap-2 text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-database"
+            ><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path
+              d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path
+              d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path
+              d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg
+          > Bases de Datos
         </h5>
 
         <!-- MySQL -->
         <div>
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>MySQL</span>
+            <span class="flex items-center gap-2 mb-1"> MySQL </span>
             <span>Intermedio</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-yellow-500 h-2 rounded-full progress-bar-fill" style="width:70%"></div>
+            <div
+              class="bg-yellow-500 h-2 rounded-full progress-bar-fill"
+              style="width:60%"
+            >
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Herramientas -->
-      <div class="glass-card shadow-lg rounded-xl p-6 fade-in-5">
-        <h5 class="text-xl font-semibold mb-4 flex items-center gap-2 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94-7.94l-3.77 3.77a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0z"></path></svg> Herramientas
+      <div class="glass-card shadow-lg rounded-xl p-6">
+        <h5
+          class="text-xl font-semibold mb-4 flex items-center gap-2 text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-tool"
+            ><path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94-7.94l-3.77 3.77a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0z"
+            ></path></svg
+          > Herramientas
         </h5>
 
         <!-- Bash -->
         <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>Bash</span>
+            <span class="flex items-center gap-2 mb-1"> Bash </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-gray-500 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-gray-200 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
 
         <!-- Git -->
-        <div>
+        <div class="mb-4">
           <div class="flex justify-between text-sm font-medium text-gray-300">
-            <span>Git</span>
+            <span class="flex items-center gap-2 mb-1"> Git </span>
             <span>Básico</span>
           </div>
           <div class="w-full bg-gray-700 rounded-full h-2">
-            <div class="bg-orange-500 h-2 rounded-full progress-bar-fill" style="width:40%"></div>
+            <div
+              class="bg-orange-500 h-2 rounded-full progress-bar-fill"
+              style="width:30%"
+            >
+            </div>
           </div>
         </div>
       </div>

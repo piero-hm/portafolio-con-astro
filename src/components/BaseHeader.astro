@@ -1,147 +1,163 @@
 ---
-// Este componente define la barra de navegación principal del sitio.
-// Es responsivo y tiene un menú para dispositivos móviles.
+/* src/components/BaseHeader.astro
+   Componente BaseHeader adaptado: menú de escritorio, menú móvil, efecto de scroll,
+   y marcado de enlace activo (server-side con `activePage` o client-side si no se pasa).
+*/
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/sobre-mi", label: "Sobre mí" },
+  { href: "/habilidades", label: "Habilidades" },
+  { href: "/proyectos", label: "Proyectos" },
+  { href: "/contacto", label: "Contacto" },
+];
 
-// Puedes pasar el enlace activo como una prop para resaltarlo.
 const { activePage } = Astro.props;
+const hasServerActive = Boolean(activePage);
 ---
 
 <header
-  class="fixed top-0 z-50 w-full bg-slate-900/60 backdrop-blur-xl shadow-lg border-b border-slate-800"
+  id="main-header"
+  class="relative top-0 z-50 w-full flex justify-center items-center h-20 transition-colors duration-300"
+  data-has-server-active={hasServerActive ? "true" : "false"}
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo o Nombre del Sitio -->
-      <div class="flex-shrink-0">
-        <a
-          href="/"
-          class="text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-600 text-transparent bg-clip-text"
-        >
-          Piero
-        </a>
-      </div>
+  <nav
+    class="relative z-10 flex justify-between items-center w-full max-w-7xl px-4 sm:px-6 lg:px-8 border border-slate-500 rounded-2xl bg-slate-900/70 backdrop-blur-xl p-1"
+    aria-label="Navegación principal"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="text-2xl font-extrabold bg-gradient-to-r from-red-400 to-indigo-600 text-transparent bg-clip-text"
+    >
+      PieroDev
+    </a>
 
-      <!-- Enlaces de Navegación para Escritorio -->
-      <nav class="hidden md:flex md:space-x-8">
-        <a
-          href="/"
-          class={`font-medium text-slate-300 hover:text-white transition-colors duration-200 nav-link-underline ${activePage === '/' ? 'active' : ''}`}
-        >
-          Inicio
-        </a>
-
-        <a
-          href="/sobre-mi"
-          class={`font-medium text-slate-300 hover:text-white transition-colors duration-200 nav-link-underline ${activePage === '/sobre-mi' ? 'active' : ''}`}
-        >
-          Sobre mi
-        </a>
-        <a
-          href="/habilidades"
-          class={`font-medium text-slate-300 hover:text-white transition-colors duration-200 nav-link-underline ${activePage === '/habilidades' ? 'active' : ''}`}
-        >
-          Habilidades
-        </a>
-
-        <a
-          href="/proyectos"
-          class={`font-medium text-slate-300 hover:text-white transition-colors duration-200 nav-link-underline ${activePage === '/proyectos' ? 'active' : ''}`}
-        >
-          Proyectos
-        </a>
-        <a
-          href="/contacto"
-          class={`font-medium text-slate-300 hover:text-white transition-colors duration-200 nav-link-underline ${activePage === '/contacto' ? 'active' : ''}`}
-        >
-          Contacto
-        </a>
-      </nav>
-
-      <!-- Botón de Menú para Móviles -->
-      <div class="-mr-2 flex md:hidden">
-        <button
-          id="mobile-menu-button"
-          type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Abrir menú principal</span>
-          <!-- Ícono de hamburguesa -->
-          <svg
-            class="block h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+    <!-- Navegación de escritorio -->
+    <div class="hidden md:flex items-center gap-x-8" role="menubar">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            role="menuitem"
+            class:list={[
+              "nav-link font-medium text-slate-300 hover:text-lime-300 transition-colors duration-200",
+              {
+                "is-active": hasServerActive ? link.href === activePage : false,
+              },
+            ]}
+            data-href={link.href}
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <!-- Ícono de X (cerrar) -->
-          <svg
-            class="hidden h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
+            {link.label}
+          </a>
+        ))
+      }
     </div>
-  </div>
 
-  <!-- Menú para Móviles (se muestra/oculta con JS) -->
-  <div class="hidden md:hidden bg-slate-900/90" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a
-        href="/"
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 nav-link-underline ${activePage === '/' ? 'active' : ''}"
-        >Inicio</a
+    <!-- Botón de Menú Móvil -->
+    <div class="md:hidden">
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Abrir menú principal"
       >
-      <a
-        href="/sobre-mi"
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 nav-link-underline ${activePage === '/sobre-mi' ? 'active' : ''}"
-        >Sobre mi</a
-      >
-      <a
-        href="/habilidades"
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 nav-link-underline ${activePage === '/habilidades' ? 'active' : ''}"
-        >Habilidades</a
-      >
-      <a
-        href="/proyectos"
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 nav-link-underline ${activePage === '/proyectos' ? 'active' : ''}"
-        >Proyectos</a
-      >
-      <a
-        href="/contacto"
-        class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 nav-link-underline ${activePage === '/contacto' ? 'active' : ''}"
-        >Contacto</a
-      >
+        <span class="sr-only">Abrir menú principal</span>
+        <!-- Ícono hamburguesa -->
+        <svg
+          class="block h-6 w-6 icon-open"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path></svg
+        >
+        <!-- Ícono X (cerrar) -->
+        <svg
+          class="hidden h-6 w-6 icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path></svg
+        >
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú Móvil Desplegable -->
+  <div
+    id="mobile-menu"
+    class="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 hidden"
+  >
+    <div class="flex flex-col items-center px-2 pt-2 pb-4 space-y-3">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "block w-full text-center px-3 py-2 rounded-md text-base font-medium text-green-300 hover:text-white hover:bg-slate-800",
+              {
+                "is-active": hasServerActive ? link.href === activePage : false,
+              },
+            ]}
+            data-href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
   </div>
 </header>
 
-<script is:inline>
-  // --- Script para el menú móvil ---
-  const btn = document.getElementById("mobile-menu-button");
-  const menu = document.getElementById("mobile-menu");
-  const icons = btn.querySelectorAll("svg");
+<style>
+  /* Indicador y estilo para el enlace activo (escritorio y móvil) */
+  .nav-link {
+    position: relative;
+    padding-left: 0.5rem;
+  }
+  .nav-link.is-active {
+    color: white;
+    font-weight: 600;
+  }
+  /* punto indicador antes del texto (escritorio) */
+  .nav-link.is-active::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #a9ff5b;
+  }
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    icons.forEach((icon) => icon.classList.toggle("hidden"));
-  });
+  /* Móvil: resaltar con fondo */
+  #mobile-menu a.is-active {
+    background: rgba(169, 255, 91, 0.06);
+    color: white;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  import setupHeader from "../scripts/header-interactions.js";
+
+  // Se llama a la función que acabamos de importar.
+  // Esto ejecuta todo el código de configuración que movimos al archivo .js,
+  // manteniendo este componente de Astro más limpio y enfocado en la estructura.
+  setupHeader();
 </script>

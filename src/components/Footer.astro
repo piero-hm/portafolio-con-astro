@@ -1,6 +1,7 @@
 ---
+import "../styles/footer.css";
 const socials = [
-  { href: "#", label: "GitHub", svg: "github" },
+  { href: "https://github.com/piero-hm", label: "GitHub", svg: "github" },
   { href: "#", label: "LinkedIn", svg: "linkedin" },
   { href: "#", label: "X", svg: "x" },
   { href: "#", label: "Instagram", svg: "instagram" },
@@ -9,7 +10,7 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-  class="mt-12 border-t border-slate-200 dark:border-slate-700 bg-transparent"
+  class="bg-slate-800 mt-12 border-t border-slate-200 dark:border-slate-700"
 >
   <div class="container mx-auto px-4 py-6 text-center">
     <div class="mb-4 flex justify-center gap-4">
@@ -81,7 +82,7 @@ const year = new Date().getFullYear();
     id="scrollTopBtn"
     type="button"
     aria-label="Subir al inicio"
-    class="hidden fixed bottom-6 right-6 w-11 h-11 rounded-full shadow-lg bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-opacity duration-200"
+    class="hidden fixed bottom-6 right-6 w-10 h-10 rounded-full shadow-lg bg-white/90 dark:bg-blue-600/90 text-slate-700 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-opacity duration-200"
   >
     <svg
       class="w-5 h-5"

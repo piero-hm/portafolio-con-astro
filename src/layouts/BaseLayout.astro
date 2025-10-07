@@ -1,4 +1,5 @@
 ---
+import "@fontsource/inter"; // Importa la tipografía Inter
 import "../styles/global.css";
 
 import BaseHeader from "../components/BaseHeader.astro";
@@ -32,6 +33,6 @@ const { title = "Piero — Portafolio", description = "Portafolio de Piero" } =
       <slot />
     </main>
     <Footer />
-        <script src="../scripts/ui/scroll-top.js"></script>
+    <script src="../scripts/scroll-top.js"></script>
   </body>
 </html>

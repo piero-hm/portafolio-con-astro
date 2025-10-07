@@ -1,25 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
+import Icon from "../components/Icon.astro";
+import "../styles/proyectos.css";
 
-import proyecto1 from "../assets/images/proyecto1.png";
-import proyecto2 from "../assets/images/proyecto2.png";
-import proyecto3 from "../assets/images/proyecto3.png";
-import proyectoBash from "../assets/images/proyecto-bash.png";
+import proyecto1 from "../assets/images/proyectos/proyecto1.png";
+import proyecto2 from "../assets/images/proyectos/proyecto2.png";
+import proyecto3 from "../assets/images/proyectos/proyecto3.png";
+import proyectoBash from "../assets/images/proyectos/proyecto-bash.png";
 ---
 
-<BaseLayout activePage={Astro.url.pathname} title="Proyectos - Piero" description="Explora los proyectos de Piero, incluyendo desarrollo web, scripts y criptografía.">
+<BaseLayout
+  activePage={Astro.url.pathname}
+  title="Proyectos - Piero"
+  description="Explora los proyectos de Piero, incluyendo desarrollo web, scripts y criptografía."
+>
   <main class="max-w-7xl mx-auto my-12 pt-12 px-4">
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-white">Mis Proyectos</h1>
+      <h1 class="text-3xl font-bold text-white mb-8">Mis Proyectos</h1>
       <p class="text-lg text-gray-300">
         Una selección de proyectos en los que he trabajado.
       </p>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2">
       <!-- Proyecto 1 -->
-      <div class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col">
+      <div
+        class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col"
+      >
         <Image
           src={proyecto1}
           alt="Imagen del proyecto 1"
@@ -30,42 +38,66 @@ import proyectoBash from "../assets/images/proyecto-bash.png";
         />
         <div class="p-6 flex flex-col flex-grow">
           <h5 class="text-xl font-semibold mb-2 text-white">Portafolio</h5>
-          <p class="text-gray-300 mb-4">Portafolio elaborado con bootstrap</p>
+          <p class="text-gray-300 mb-4">
+            Mi primer portafolio elaborado en Bootstrap
+          </p>
           <div class="mt-auto flex justify-between items-center">
             <div class="space-x-2 flex">
               <a
                 href="https://github.com/piero-hm/portafolio-bootstrap"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c-.52-1.58-1.52-3.15-3.01-3.15A4.2 4.2 0 0 0 12 2.95a4.2 4.2 0 0 0-4.91-3.15c-1.5.0-2.49 1.57-3.01 3.15A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Ver código</a
+              >
+                <Icon name="github" class="mr-1 h-4 w-4" />
+                Ver código</a
               >
               <a
                 href="#"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 border border-gray-400 text-gray-300 text-sm rounded-lg hover:bg-gray-700 hover:border-blue-600 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link mr-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Demo</a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-external-link mr-1"
+                  ><path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path><polyline points="15 3 21 3 21 9"></polyline><line
+                    x1="10"
+                    y1="14"
+                    x2="21"
+                    y2="3"></line></svg
+                > Demo</a
               >
             </div>
-            <div class="space-x-2">
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-blue-700 text-white"
-                >HTML</span
-              >
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-cyan-700 text-white"
-                >CSS</span
-              >
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-yellow-700 text-white"
-                >Bootstrap</span
-              >
+            <div class="flex items-center space-x-1 text-white">
+              <Icon
+                name="html"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
+              <Icon
+                name="css"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
+              <Icon
+                name="bootstrap"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <!-- Proyecto 2 -->
-      <div class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col">
+      <div
+        class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col"
+      >
         <Image
           src={proyecto2}
           alt="Imagen del proyecto 2"
@@ -75,43 +107,71 @@ import proyectoBash from "../assets/images/proyecto-bash.png";
           class="h-48 w-full object-cover"
         />
         <div class="p-6 flex flex-col flex-grow">
-          <h5 class="text-xl font-semibold mb-2 text-white">Proyecto Panadería</h5>
-          <p class="text-gray-300 mb-4">Proyecto en proceso</p>
+          <h5 class="text-xl font-semibold mb-2 text-white">
+            Proyecto Panadería
+          </h5>
+          <p class="text-gray-300 mb-4">proyecto en proceso</p>
           <div class="mt-auto flex justify-between items-center">
             <div class="space-x-2 flex">
               <a
                 href="https://github.com/piero-hm/pasteleria-test"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c-.52-1.58-1.52-3.15-3.01-3.15A4.2 4.2 0 0 0 12 2.95a4.2 4.2 0 0 0-4.91-3.15c-1.5.0-2.49 1.57-3.01 3.15A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Ver código</a
+              >
+                <Icon name="github" class="mr-1 h-4 w-4" />
+                Ver código</a
               >
               <a
                 href="#"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 border border-gray-400 text-gray-300 text-sm rounded-lg hover:bg-gray-700 hover:border-blue-600 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link mr-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Demo</a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-external-link mr-1"
+                  ><path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path><polyline points="15 3 21 3 21 9"></polyline><line
+                    x1="10"
+                    y1="14"
+                    x2="21"
+                    y2="3"></line></svg
+                > Demo</a
               >
             </div>
-            <div class="space-x-2">
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-blue-700 text-white"
-                >HTML</span
-              >
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-cyan-700 text-white"
-                >CSS</span
-              >
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-yellow-700 text-white"
-                >Bootstrap</span
-              >
+            <div class="flex items-center space-x-1 text-white">
+              <Icon
+                name="html"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
+              <Icon
+                name="css"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
+              <Icon
+                name="astro"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
+              <Icon
+                name="tailwindcss-wordmark"
+                class="flex justify-center items-center h-6 w-auto transition-transform duration-200 hover:scale-125"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <!-- Proyecto 3 -->
-      <div class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col">
+      <div
+        class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col"
+      >
         <Image
           src={proyecto3}
           alt="Imagen del proyecto 3"
@@ -134,27 +194,49 @@ import proyectoBash from "../assets/images/proyecto-bash.png";
                 href="https://github.com/piero-hm/criptografia-basica-python"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c-.52-1.58-1.52-3.15-3.01-3.15A4.2 4.2 0 0 0 12 2.95a4.2 4.2 0 0 0-4.91-3.15c-1.5.0-2.49 1.57-3.01 3.15A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Ver código</a
+              >
+                <Icon name="github" class="mr-1 h-4 w-4" />
+                Ver código</a
               >
               <a
                 href="#"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 border border-gray-400 text-gray-300 text-sm rounded-lg hover:bg-gray-700 hover:border-blue-600 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link mr-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Demo</a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-external-link mr-1"
+                  ><path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path><polyline points="15 3 21 3 21 9"></polyline><line
+                    x1="10"
+                    y1="14"
+                    x2="21"
+                    y2="3"></line></svg
+                > Demo</a
               >
             </div>
-            <div>
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-green-700 text-white"
-                >Python</span
-              >
+            <div class="flex items-center text-white">
+              <Icon
+                name="python"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <!-- Proyecto 4 -->
-      <div class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col">
+      <div
+        class="bg-slate-800 shadow-lg rounded-xl overflow-hidden flex flex-col"
+      >
         <Image
           src={proyectoBash}
           alt="Imagen del proyecto 4"
@@ -164,7 +246,9 @@ import proyectoBash from "../assets/images/proyecto-bash.png";
           class="h-48 w-full object-cover"
         />
         <div class="p-6 flex flex-col flex-grow">
-          <h5 class="text-xl font-semibold mb-2 text-white">Script en bash - snapinfo</h5>
+          <h5 class="text-xl font-semibold mb-2 text-white">
+            Script en bash - snapinfo
+          </h5>
           <p class="text-gray-300 mb-4">
             Script en Bash que genera un snapshot rápido del sistema (kernel,
             CPU, memoria, disco, IPs y procesos) y guarda el informe con
@@ -176,20 +260,40 @@ import proyectoBash from "../assets/images/proyecto-bash.png";
                 href="https://github.com/piero-hm/bash-practice"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c-.52-1.58-1.52-3.15-3.01-3.15A4.2 4.2 0 0 0 12 2.95a4.2 4.2 0 0 0-4.91-3.15c-1.5.0-2.49 1.57-3.01 3.15A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Ver código</a
+              >
+                <Icon name="github" class="mr-1 h-4 w-4" />
+                Ver código</a
               >
               <a
                 href="#"
                 target="_blank"
                 class="inline-flex items-center px-3 py-1 border border-gray-400 text-gray-300 text-sm rounded-lg hover:bg-gray-700 hover:border-blue-600 transition transform hover:scale-105"
-                ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link mr-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> Demo</a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-external-link mr-1"
+                  ><path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  ></path><polyline points="15 3 21 3 21 9"></polyline><line
+                    x1="10"
+                    y1="14"
+                    x2="21"
+                    y2="3"></line></svg
+                > Demo</a
               >
             </div>
-            <div>
-              <span
-                class="px-2 py-1 text-xs rounded-full bg-gray-700 text-white"
-                >Bash</span
-              >
+            <div class="flex items-center text-white">
+              <Icon
+                name="bash"
+                class="h-6 w-6 transition-transform duration-200 hover:scale-125"
+              />
             </div>
           </div>
         </div>

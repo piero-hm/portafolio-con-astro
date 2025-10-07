@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
 .typed-text {
   position: relative;
 }
@@ -23,23 +27,23 @@
 }
 
 .fade-in-1 {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 .fade-in-2 {
-  animation: fadeIn 0.8s ease-out forwards 0.2s;
+  animation: fadeIn 0.5s ease-out forwards 0.2s;
 }
 
 .fade-in-3 {
-  animation: fadeIn 0.8s ease-out forwards 0.4s;
+  animation: fadeIn 0.5s ease-out forwards 0.4s;
 }
 
 .fade-in-4 {
-  animation: fadeIn 0.8s ease-out forwards 0.6s;
+  animation: fadeIn 0.5s ease-out forwards 0.6s;
 }
 
 .fade-in-5 {
-  animation: fadeIn 0.8s ease-out forwards 0.8s;
+  animation: fadeIn 0.5s ease-out forwards 0.8s;
 }
 
 .glass-card {
@@ -81,23 +85,4 @@
   animation: fillProgressBar 1.5s ease-out forwards;
 }
 
-/* Nav Link Underline */
-.nav-link-underline {
-  position: relative;
-}
 
-.nav-link-underline::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #8be9fd; /* Un color vibrante, por ejemplo */
-  transition: width 0.3s ease-out;
-}
-
-.nav-link-underline:hover::after,
-.nav-link-underline.active::after {
-  width: 100%;
-}

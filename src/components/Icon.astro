@@ -11,8 +11,21 @@ const icons = import.meta.glob('/src/assets/icons/*.svg', { as: 'raw' });
 // Construye la ruta al ícono solicitado.
 const iconPath = `/src/assets/icons/${name}.svg`;
 
-// Obtiene el contenido del SVG o null si no existe.
-const svg = icons[iconPath] || null;
+// Obtiene el contenido del SVG. El valor de glob es una función que devuelve una promesa, 
+// por lo que debemos llamarla y esperarla (await).
+const svgContent = icons[iconPath] ? await icons[iconPath]() : null;
 ---
 
-{svg && <div class:list={[className]} set:html={svg} {...rest} />}
+{svgContent && <div class:list={[className]} set:html={svgContent} {...rest} />}
+
+<style>
+  /* 
+    Esto asegura que el SVG inyectado ocupe el 100% del div contenedor.
+    De esta forma, las clases de tamaño (ej. h-6 w-6) que se aplican al div 
+    controlan el tamaño final del ícono.
+  */
+  div > svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
